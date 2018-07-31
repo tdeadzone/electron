@@ -1,9 +1,10 @@
 // Modules to control application life and create native browser window
 const { app, BrowserWindow } = require("electron");
+const { wcfg } = require('./src/config/windowCfg.js');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let mainWindow;
+let mainWindow = null;
 
 // ui 目录
 // const uiPathPro = ".index.html";
@@ -11,10 +12,7 @@ const uiPathDev = "http://localhost:3000";
 
 function createWindow() {
     // Create the browser window.
-    mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600
-    });
+    mainWindow = new BrowserWindow(wcfg);
 
     // and load the index.html of the app.
     // mainWindow.loadFile(uiPathPro); // 生成环境
